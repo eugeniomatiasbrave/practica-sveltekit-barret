@@ -14,11 +14,10 @@ type DetailedCharacter ={
 	relatives: { name: string }[];
 }
 
-const API = 'https://svelte.fun/api/bobs-burgers';
-
-export const load = async ({fetch, params}) => {
-    const { id } = params;
-	const response = await fetch(`${API}/characters/${id}`);
+export const load = async (event) => {
+    const {fetch, params} = event;	
+	
+	const response = await fetch(`/api/characters/${params.id}`);
 
 	if (!response.ok) {
 		const err = await response.json();

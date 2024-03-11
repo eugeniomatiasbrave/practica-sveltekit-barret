@@ -1,7 +1,4 @@
 
-import {env} from '$env/dynamic/private'
-
-
 type Character ={
 	id: number;
 	name: string;
@@ -9,11 +6,9 @@ type Character ={
 	occupation: string;
 }
 
-const API = env.PRIVATE_BOBS_BURGERS_API;
+export const load = async ({fetch}) => {
 
-export const load = async () => {
-
-	const response = await fetch(`${API}/characters`);
+	const response = await fetch(`api/characters`);
 	const characters: Character[] = await response.json();
 
 	return { characters } 	
