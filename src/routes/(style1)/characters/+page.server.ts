@@ -1,3 +1,7 @@
+
+import {env} from '$env/dynamic/private'
+
+
 type Character ={
 	id: number;
 	name: string;
@@ -5,9 +9,9 @@ type Character ={
 	occupation: string;
 }
 
-const API = 'https://svelte.fun/api/bobs-burgers';
+const API = env.PRIVATE_BOBS_BURGERS_API;
 
-export const load = async ({fetch}) => {
+export const load = async () => {
 
 	const response = await fetch(`${API}/characters`);
 	const characters: Character[] = await response.json();
