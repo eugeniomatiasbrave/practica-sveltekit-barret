@@ -59,9 +59,10 @@ export let user: string | undefined;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		
-		padding: 0.01rem;
+		margin: 0;
+		padding:0;
         border-top: #faf9f8 1px solid;
+		height: 2rem;
 		
 	}
 	a {
@@ -74,11 +75,13 @@ export let user: string | undefined;
 
 	footer a {
 		font-weight: bold;
+		margin: 0;
+		padding: 0;
 	}
 
 	@media (min-width: 480px) {
 		footer {
-			padding: 12px 0;
+			padding: 5px 0;
 		}
 	}
 </style>
