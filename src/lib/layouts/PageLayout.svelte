@@ -1,10 +1,24 @@
-<script>
-	import Header from '$lib/components/Header.svelte';
-	import '../../styles.css';
+<script lang="ts">
+import '../../styles.css';
+
+export let user: string | undefined;
+	
 </script>
 
 <div class="app">
-	<Header />
+		<nav>	
+
+		  <a href="/">Home</a>		
+		  <a href="/characters">Characters</a>
+		  <a href="/about">About</a>
+		  <a href="/portfolio">Portfolio</a>
+
+			{#if user}
+			<a href="/profile">{user}</a>
+			{:else}
+			<a href="/login">Login</a>	
+			{/if}				
+		</nav>
 
 	<main>
 		<slot />
@@ -22,6 +36,13 @@
 		min-height: 100vh;
 	}
 
+	nav {
+		width: 100%;
+		font-size: 15px;
+		text-align: center;
+		padding: 0.8rem;
+		border-bottom: #faf9f8 1px solid;
+	}
 	main {
 		flex: 1;
 		display: flex;
@@ -38,7 +59,17 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 12px;
+		
+		padding: 0.01rem;
+        border-top: #faf9f8 1px solid;
+		
+	}
+	a {
+		font-weight: bold;
+		color: #f75617;
+		text-decoration: inherit;
+		margin: 0 0.5rem;
+		padding: 0.5rem;
 	}
 
 	footer a {
